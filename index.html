@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semana Santa Peregrina – Marburg 2025</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background: #B5838D;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 0.3rem;
+    }
+    .container {
+      padding: 1rem 2rem;
+    }
+    .day-section {
+      margin-bottom: 2rem;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+    .jueves { background-color: #B5838D; color: white; }
+    .viernes { background-color: #E5989B; color: white; }
+    .sabado { background-color: #FFCDB2; color: black; }
+    .domingo { background-color: #D8E2DC; color: black; }
+    h2 {
+      margin-top: 0;
+    }
+    .activity {
+      margin: 0.5rem 0;
+    }
+    #now-section {
+      background-color: #473144;
+      color: white;
+      padding: 1rem;
+      margin: 2rem;
+      text-align: center;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Semana Santa Peregrina</h1>
+    <p>Marburg 2025</p>
+  </header>
+
+  <section id="now-section">
+    <h2>¿Qué está pasando ahora?</h2>
+    <p id="current-activity">Cargando actividad actual...</p>
+  </section>
+
+  <div class="container">
+    <div class="day-section jueves">
+      <h2>Jueves – 17 de Abril</h2>
+      <p class="activity">19:00 – Celebración Última Cena<br>Lugar: St. Elizabeth (Lahnstrasse 8)</p>
+      <p class="activity">21:00 – Hora Santa</p>
+    </div>
+
+    <div class="day-section viernes">
+      <h2>Viernes – 18 de Abril</h2>
+      <p class="activity">9:30 – Viacrucis<br>Punto de encuentro: Hauptbahnhof</p>
+      <p class="activity">15:00 – Liturgia de la Pasión<br>Lugar: KARE</p>
+      <p class="activity">19:00 – Meditación de las 7 Palabras<br>Lugar: KARE</p>
+    </div>
+
+    <div class="day-section sabado">
+      <h2>Sábado – 19 de Abril</h2>
+      <p class="activity">10:00 – Tour St. Elizabeth<br>Lugar: Elizabeth Kirche</p>
+      <p class="activity">17:00 – Santo Rosario<br>Lugar: Haus der Begegnung</p>
+      <p class="activity">21:00 – Vigilia Pascual<br>Lugar: St. Peter und Paul / KARE</p>
+    </div>
+
+    <div class="day-section domingo">
+      <h2>Domingo – 20 de Abril</h2>
+      <p class="activity">8:30 – Misa de Resurrección I<br>Lugar: St. Elizabeth (Lahnstrasse 8)</p>
+      <p class="activity">16:00 – Misa de Resurrección II<br>Lugar: St. Elizabeth (Lahnstrasse 8)</p>
+    </div>
+  </div>
+
+  <script>
+    const schedule = [
+    { time: "2025-04-14T20:10:00+02:00", text: "Cena en familia" },  
+    { time: "2025-04-17T19:00:00+02:00", text: "Celebración Última Cena (St. Elizabeth)" },
+      { time: "2025-04-17T21:00:00+02:00", text: "Hora Santa" },
+      { time: "2025-04-18T09:30:00+02:00", text: "Viacrucis (Hauptbahnhof)" },
+      { time: "2025-04-18T15:00:00+02:00", text: "Liturgia de la Pasión (KARE)" },
+      { time: "2025-04-18T19:00:00+02:00", text: "Meditación de las 7 Palabras (KARE)" },
+      { time: "2025-04-19T10:00:00+02:00", text: "Tour St. Elizabeth" },
+      { time: "2025-04-19T17:00:00+02:00", text: "Santo Rosario (Haus der Begegnung)" },
+      { time: "2025-04-19T21:00:00+02:00", text: "Vigilia Pascual (St. Peter und Paul / KARE)" },
+      { time: "2025-04-20T08:30:00+02:00", text: "Misa de Resurrección I (St. Elizabeth)" },
+      { time: "2025-04-20T16:00:00+02:00", text: "Misa de Resurrección II (St. Elizabeth)" }
+    ];
+
+    function updateCurrentActivity() {
+      const now = new Date();
+      let current = "No hay actividad en este momento.";
+
+      for (let i = 0; i < schedule.length; i++) {
+        const activityTime = new Date(schedule[i].time);
+        const nextTime = i + 1 < schedule.length ? new Date(schedule[i + 1].time) : new Date(activityTime.getTime() + 2 * 60 * 60 * 1000);
+        if (now >= activityTime && now < nextTime) {
+          current = schedule[i].text;
+          break;
+        }
+      }
+
+      document.getElementById("current-activity").textContent = current;
+    }
+
+    updateCurrentActivity();
+    setInterval(updateCurrentActivity, 60000);
+  </script>
+</body>
+</html>
