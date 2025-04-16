@@ -20,6 +20,7 @@
     }
     h1 {
       margin-bottom: 0.3rem;
+      font-size: 2.5rem;
     }
     .container {
       padding: 1rem 2rem;
@@ -29,15 +30,19 @@
       padding: 1rem;
       border-radius: 8px;
     }
-    .jueves { background-color: #B5838D; color: white; }
-    .viernes { background-color: #E5989B; color: white; }
+    .jueves { background-color: #B5838D; color: black; }
+    .viernes { background-color: #E5989B; color: black; }
     .sabado { background-color: #FFCDB2; color: black; }
     .domingo { background-color: #D8E2DC; color: black; }
     h2 {
       margin-top: 0;
+      font-weight: bold;
     }
     .activity {
       margin: 0.5rem 0;
+    }
+    .activity strong {
+      display: inline-block;
     }
     #now-section {
       background-color: #473144;
@@ -46,6 +51,11 @@
       margin: 2rem;
       text-align: center;
       border-radius: 10px;
+    }
+    #current-datetime {
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      color: #ccc;
     }
   </style>
 </head>
@@ -58,49 +68,59 @@
   <section id="now-section">
     <h2>¿Qué está pasando ahora?</h2>
     <p id="current-activity">Cargando actividad actual...</p>
+    <div id="current-datetime"></div>
   </section>
 
   <div class="container">
     <div class="day-section jueves">
-      <h2>Jueves – 17 de Abril</h2>
-      <p class="activity">19:00 – Celebración Última Cena<br>Lugar: St. Elizabeth (Lahnstrasse 8)</p>
-      <p class="activity">21:00 – Hora Santa</p>
+      <h2>Jueves 17.04.2025</h2>
+      <p class="activity"><strong>• Celebración Última Cena</strong>; Hora: 19:00–20:00; Lugar: Capilla St. Elisabeth (Lahnstrasse 8).</p>
+      <p class="activity"><strong>• Hora Santa</strong>; Hora: 21:00–22:00; Lugar: Capilla St. Elisabeth (Lahnstrasse 8).</p>
+      <p class="activity"><strong>• Confesiones en español:</strong> 22:00–24:00</p>
     </div>
 
     <div class="day-section viernes">
-      <h2>Viernes – 18 de Abril</h2>
-      <p class="activity">9:30 – Viacrucis<br>Punto de encuentro: Hauptbahnhof</p>
-      <p class="activity">15:00 – Liturgia de la Pasión<br>Lugar: KARE</p>
-      <p class="activity">19:00 – Meditación de las 7 Palabras<br>Lugar: KARE</p>
+      <h2>Viernes 18.04.2025</h2>
+      <p class="activity"><strong>• Viacrucis</strong>; Hora: 9:00–12:00; Lugar: Punto de encuentro en Hbf. Ruta desde la parada de bus Hoerdernlinstrasse hasta Botanischergarden</p>
+      <p class="activity"><strong>• Liturgia de la Pasión</strong>; Hora: 15:00–16:00; Lugar: Haus der Begegnung</p>
+      <p class="activity"><strong>• Meditación de las 7 Palabras</strong>; Hora: 19:00–20:30; Lugar: KARE (Biegenstrasse 18)</p>
+      <p class="activity"><strong>• Confesiones en español:</strong> 22:00–24:00</p>
     </div>
 
     <div class="day-section sabado">
-      <h2>Sábado – 19 de Abril</h2>
-      <p class="activity">10:00 – Tour St. Elizabeth<br>Lugar: Elizabeth Kirche</p>
-      <p class="activity">17:00 – Santo Rosario<br>Lugar: Haus der Begegnung</p>
-      <p class="activity">21:00 – Vigilia Pascual<br>Lugar: St. Peter und Paul / KARE</p>
+      <h2>Sábado 19.04.2025</h2>
+      <p class="activity"><strong>• Tour St. Elisabeth</strong>; Hora: 10:00–12:00</p>
+      <p class="activity"><strong>• Santo Rosario de los Dolores</strong>; Hora: 17:00–18:30; Lugar: Haus der Begegnung</p>
+      <p class="activity"><strong>• Cena de Pascua en Comunidad</strong>; Hora: 19:00–20:15; Lugar: Haus der Begegnung</p>
+      <p class="activity"><strong>• Vigilia Pascual</strong>; Hora: 21:00–24:00; Lugar: St. Peter und Paul/KARE</p>
+      <p class="activity"><strong>• Confesiones en español:</strong> 14:00–18:00</p>
     </div>
 
-    <div class="day-section domingo">
-      <h2>Domingo – 20 de Abril</h2>
-      <p class="activity">8:30 – Misa de Resurrección I<br>Lugar: St. Elizabeth (Lahnstrasse 8)</p>
-      <p class="activity">16:00 – Misa de Resurrección II<br>Lugar: St. Elizabeth (Lahnstrasse 8)</p>
+    <div class="day-section domingo" style="background-color: #E9D6EC;">
+      <h2>Domingo 20.04.2025</h2>
+      <p class="activity"><strong>• Misa de Resurrección para peregrinos</strong>; Hora: 8:30; Lugar: St. Elisabeth (Lahnstrasse 8)</p>
+      <p class="activity"><strong>• Almuerzo en comunidad</strong>; Hora: 12:30; Lugar: Haus der Begegnung</p>
+      <p class="activity"><strong>• Misa de Resurrección</strong>; Hora: 16:00; Lugar: St. Elisabeth (Lahnstrasse 8)</p>
     </div>
   </div>
 
   <script>
     const schedule = [
-    
-      { time: "2025-04-17T19:00:00+02:00", text: "Celebración Última Cena (St. Elizabeth)" },
+      { time: "2025-04-17T19:00:00+02:00", text: "Celebración Última Cena (St. Elisabeth)" },
       { time: "2025-04-17T21:00:00+02:00", text: "Hora Santa" },
-      { time: "2025-04-18T09:30:00+02:00", text: "Viacrucis (Hauptbahnhof)" },
-      { time: "2025-04-18T15:00:00+02:00", text: "Liturgia de la Pasión (KARE)" },
-      { time: "2025-04-18T19:00:00+02:00", text: "Meditación de las 7 Palabras (KARE)" },
+      { time: "2025-04-17T22:00:00+02:00", text: "Confesiones en español" },
+      { time: "2025-04-18T09:00:00+02:00", text: "Viacrucis" },
+      { time: "2025-04-18T15:00:00+02:00", text: "Liturgia de la Pasión" },
+      { time: "2025-04-18T19:00:00+02:00", text: "Meditación de las 7 Palabras" },
+      { time: "2025-04-18T22:00:00+02:00", text: "Confesiones en español" },
       { time: "2025-04-19T10:00:00+02:00", text: "Tour St. Elizabeth" },
-      { time: "2025-04-19T17:00:00+02:00", text: "Santo Rosario (Haus der Begegnung)" },
-      { time: "2025-04-19T21:00:00+02:00", text: "Vigilia Pascual (St. Peter und Paul / KARE)" },
-      { time: "2025-04-20T08:30:00+02:00", text: "Misa de Resurrección I (St. Elizabeth)" },
-      { time: "2025-04-20T16:00:00+02:00", text: "Misa de Resurrección II (St. Elizabeth)" }
+      { time: "2025-04-19T14:00:00+02:00", text: "Confesiones en español" },
+      { time: "2025-04-19T17:00:00+02:00", text: "Santo Rosario de los Dolores" },
+      { time: "2025-04-19T19:00:00+02:00", text: "Cena de Pascua en Comunidad" },
+      { time: "2025-04-19T21:00:00+02:00", text: "Vigilia Pascual" },
+      { time: "2025-04-20T08:30:00+02:00", text: "Misa de Resurrección para peregrinos" },
+      { time: "2025-04-20T12:30:00+02:00", text: "Almuerzo en comunidad" },
+      { time: "2025-04-20T16:00:00+02:00", text: "Misa de Resurrección" }
     ];
 
     function updateCurrentActivity() {
@@ -117,6 +137,7 @@
       }
 
       document.getElementById("current-activity").textContent = current;
+      document.getElementById("current-datetime").textContent = now.toLocaleString("es-ES", { timeZone: "Europe/Berlin" });
     }
 
     updateCurrentActivity();
